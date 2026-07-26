@@ -1,0 +1,6 @@
+{
+  "name": "DietCraft",
+  "description": "India's first AI Precision Nutrition platform linking continuous wearable telemetry and clinical doctor validation to prevent and reverse lifestyle diseases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
