@@ -330,15 +330,17 @@ export function DesktopForm({ onSubmitSuccess }: DesktopFormProps) {
 
       <motion.form
         onSubmit={handleSubmit}
-        className="glass-card rounded-[32px] p-6 sm:p-10 border border-brand/10 shadow-2xl bg-white/85 relative overflow-hidden text-left"
+        className="glass-card rounded-[36px] p-6 sm:p-10 md:p-12 border-2 border-brand/15 shadow-2xl shadow-brand/10 bg-white/90 relative overflow-hidden text-left"
       >
+        <div className="absolute top-0 right-0 w-40 h-40 bg-brand-soft/40 rounded-bl-full pointer-events-none" />
+
         {/* Form header */}
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-brand/5">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-brand/10 z-10 relative">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-brand animate-pulse" />
-            <span className="text-xs font-mono font-semibold text-brand">BATCH 01 ENROLLMENT ACTIVE</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-highlight animate-ping" />
+            <span className="text-xs font-mono font-bold text-brand uppercase tracking-wider">BATCH 01 ENROLLMENT ACTIVE</span>
           </div>
-          <span className="text-[10px] font-mono text-muted">SECURE CONNECTION SEC_V4</span>
+          <span className="text-[10px] font-mono font-bold text-brand bg-brand-soft px-2.5 py-1 rounded-full border border-brand/10">VIP ACCESS</span>
         </div>
 
         {/* 2-column input fields */}
@@ -347,7 +349,7 @@ export function DesktopForm({ onSubmitSuccess }: DesktopFormProps) {
           <div>
             <label className="text-[11px] font-mono font-bold text-dark uppercase block mb-1.5">Full Name</label>
             <div className="relative">
-              <span className="absolute left-4 top-3.5 text-muted/60">
+              <span className="absolute left-4 top-3.5 text-brand/60">
                 <User size={16} />
               </span>
               <input
@@ -355,9 +357,9 @@ export function DesktopForm({ onSubmitSuccess }: DesktopFormProps) {
                 placeholder="Aarav Sharma"
                 value={fields.fullName}
                 onChange={(e) => setFields({ ...fields, fullName: e.target.value })}
-                className="w-full pl-11 pr-4 py-3 bg-white border border-brand/10 focus:border-brand/40 rounded-xl text-sm transition-all focus:outline-none"
+                className="w-full pl-11 pr-4 py-3 bg-white border border-brand/15 focus:border-brand focus:ring-2 focus:ring-brand/10 rounded-xl text-sm transition-all focus:outline-none shadow-2xs"
               />
-              {errors.fullName && <p className="text-[10px] text-rose-500 font-mono mt-1">{errors.fullName}</p>}
+              {errors.fullName && <p className="text-[10px] text-rose-500 font-mono mt-1 font-semibold">{errors.fullName}</p>}
             </div>
           </div>
 

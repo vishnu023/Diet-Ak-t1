@@ -282,18 +282,20 @@ export default function SoftwarePreview() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`p-3 lg:p-4 rounded-2xl border text-left cursor-pointer transition-all duration-300 flex items-center justify-between shrink-0 lg:shrink whitespace-nowrap lg:whitespace-normal ${
+                  className={`p-3.5 lg:p-4.5 rounded-2xl border text-left cursor-pointer transition-all duration-300 flex items-center justify-between shrink-0 lg:shrink whitespace-nowrap lg:whitespace-normal ${
                     isActive
-                      ? "bg-white border-brand/20 shadow-lg shadow-brand/5 scale-[1.01] lg:scale-[1.02]"
-                      : "bg-transparent border-transparent text-muted hover:text-dark hover:bg-white/40"
+                      ? "bg-white border-brand/20 shadow-xl shadow-brand/10 scale-[1.01] lg:scale-[1.02] border-l-4 border-l-brand"
+                      : "bg-transparent border-transparent text-muted hover:text-dark hover:bg-white/60"
                   }`}
                 >
                   <div>
-                    <h4 className="font-display font-semibold text-xs sm:text-sm lg:text-base text-dark">{tab.name}</h4>
+                    <h4 className="font-display font-semibold text-xs sm:text-sm lg:text-base text-dark flex items-center gap-2">
+                      <span>{tab.name}</span>
+                    </h4>
                     <p className="hidden lg:block text-xs text-muted font-light mt-0.5 line-clamp-1">{tab.title}</p>
                   </div>
                   {isActive && (
-                    <span className="hidden lg:block w-1.5 h-1.5 rounded-full bg-brand" />
+                    <span className="hidden lg:block w-2 h-2 rounded-full bg-brand-highlight animate-pulse shadow-xs" />
                   )}
                 </button>
               );
@@ -301,11 +303,14 @@ export default function SoftwarePreview() {
           </div>
 
           {/* Software Preview Panel (Right column with responsive device frame mockup) */}
-          <div className="lg:col-span-7 flex flex-col sm:flex-row items-center gap-8 lg:gap-10 bg-white rounded-3xl p-6 sm:p-8 md:p-12 border border-brand/5 shadow-sm">
+          <div className="lg:col-span-7 flex flex-col sm:flex-row items-center gap-8 lg:gap-10 bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-12 border border-brand/10 shadow-xl shadow-brand/5 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-soft/50 rounded-bl-full pointer-events-none" />
+
             {/* Left side description */}
-            <div className="flex-1 space-y-4 text-left">
-              <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-brand-soft px-2.5 py-1 rounded-md">
-                {currentTab.badge}
+            <div className="flex-1 space-y-4 text-left z-10">
+              <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-brand-soft px-3 py-1.5 rounded-full border border-brand/10 inline-flex items-center gap-1.5 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-highlight animate-ping" />
+                <span>{currentTab.badge}</span>
               </span>
               <h3 className="text-xl sm:text-2xl font-display font-bold text-dark mt-2">
                 {currentTab.title}
@@ -316,33 +321,37 @@ export default function SoftwarePreview() {
               <div className="pt-2">
                 <a
                   href="#waitlist-anchor"
-                  className="text-xs font-mono font-bold text-brand hover:text-brand-highlight border-b border-brand pb-0.5 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-brand hover:text-brand-highlight border-b-2 border-brand/30 hover:border-brand-highlight pb-0.5 transition-colors"
                 >
-                  PRE-REGISTER NOW
+                  <span>PRE-REGISTER NOW</span>
+                  <Sparkles size={11} className="text-brand-highlight" />
                 </a>
               </div>
             </div>
 
             {/* Smart Phone Simulator Wrapper */}
-            <div className="w-64 h-[350px] sm:w-72 sm:h-96 bg-stone-900 rounded-[44px] p-2.5 relative border border-stone-800 shadow-2xl shrink-0 animate-float-medium">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-4.5 bg-stone-900 rounded-b-2xl z-20 flex items-center justify-center">
+            <div className="w-64 h-[360px] sm:w-72 sm:h-[400px] bg-stone-900 rounded-[44px] p-2.5 relative border-2 border-stone-700 shadow-2xl shadow-stone-900/50 shrink-0 animate-float-medium z-10">
+              {/* Outer Subtle Phone Glow */}
+              <div className="absolute -inset-1 rounded-[46px] bg-gradient-to-b from-brand/20 via-brand-highlight/10 to-transparent blur-md pointer-events-none" />
+
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-stone-900 rounded-b-2xl z-20 flex items-center justify-center border-b border-stone-800">
                 {/* Camera punch hole and speaker mockup */}
-                <div className="w-2.5 h-2.5 rounded-full bg-neutral-800" />
+                <div className="w-2.5 h-2.5 rounded-full bg-neutral-800 border border-neutral-700" />
                 <div className="w-10 h-1 bg-neutral-800 rounded-full ml-3" />
               </div>
               
               {/* Inner Smartphone Screen */}
-              <div className="w-full h-full rounded-[36px] bg-dark p-4 overflow-hidden flex flex-col justify-between relative shadow-inner">
+              <div className="w-full h-full rounded-[36px] bg-dark p-4 overflow-hidden flex flex-col justify-between relative shadow-inner border border-stone-800">
                 {/* Simulated Glow Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
                 
                 {/* App Internal Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-white/5 text-[9px] font-mono text-neutral-400 z-10">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-[9px] font-mono text-neutral-400 z-10">
                   <div className="flex items-center gap-1">
                     <Smartphone size={10} className="text-brand-highlight" />
-                    <span>DIETCRAFT v1.0</span>
+                    <span className="font-bold text-neutral-300">DIETCRAFT v1.0</span>
                   </div>
-                  <span>9:41 AM</span>
+                  <span className="text-neutral-500">9:41 AM</span>
                 </div>
 
                 {/* Main Dynamic Simulated content of the active Tab */}
@@ -362,7 +371,7 @@ export default function SoftwarePreview() {
                 </div>
 
                 {/* Mock Phone Navigation Indicator */}
-                <div className="w-24 h-1 bg-white/20 rounded-full mx-auto z-10" />
+                <div className="w-24 h-1 bg-white/25 rounded-full mx-auto z-10" />
               </div>
             </div>
 

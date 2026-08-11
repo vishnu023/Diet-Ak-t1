@@ -144,40 +144,44 @@ function StatCard({ stat, index }: StatCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-      className="glass-card rounded-3xl p-8 border border-brand/5 flex flex-col justify-between hover:shadow-xl hover:shadow-brand/5 transition-all duration-300 relative group"
+      className="glass-card rounded-3xl p-8 border border-brand/10 flex flex-col justify-between hover:shadow-2xl hover:shadow-brand/10 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden bg-white/80"
     >
+      {/* Decorative top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-brand via-brand-highlight to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
       {/* Risk Badge */}
       <div className="absolute top-6 right-6">
         <span
-          className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
+          className={`text-[10px] font-mono px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-2xs ${
             stat.risk === "Critical"
-              ? "bg-rose-50 text-rose-600 border border-rose-100"
+              ? "bg-rose-50 text-rose-700 border border-rose-200"
               : stat.risk === "Severe"
-              ? "bg-amber-50 text-amber-600 border border-amber-100"
-              : "bg-emerald-50 text-brand border border-brand-soft"
+              ? "bg-amber-50 text-amber-700 border border-amber-200"
+              : "bg-emerald-50 text-brand border border-brand/20"
           }`}
         >
-          {stat.risk} Risk
+          <span className={`w-1.5 h-1.5 rounded-full ${stat.risk === "Critical" ? "bg-rose-500 animate-ping" : stat.risk === "Severe" ? "bg-amber-500 animate-pulse" : "bg-brand"}`} />
+          <span>{stat.risk} Risk</span>
         </span>
       </div>
 
       {/* Numerical Stats */}
-      <div>
+      <div className="pt-2">
         <div className="flex items-baseline text-dark mb-4">
-          <span className="font-display font-bold text-5xl sm:text-6xl text-brand group-hover:scale-105 transition-transform duration-300 inline-block">
+          <span className="font-display font-bold text-5xl sm:text-6xl text-gradient-emerald group-hover:scale-105 transition-transform duration-300 inline-block tracking-tight">
             {count}
           </span>
-          <span className="font-display font-bold text-3xl text-brand">%</span>
+          <span className="font-display font-bold text-3xl text-brand-highlight">%</span>
         </div>
         
-        <h3 className="font-display font-semibold text-lg text-dark mb-2">{stat.label}</h3>
-        <p className="text-xs font-light text-muted leading-relaxed">{stat.sub}</p>
+        <h3 className="font-display font-semibold text-lg text-dark mb-2 group-hover:text-brand transition-colors">{stat.label}</h3>
+        <p className="text-xs font-light text-muted leading-relaxed font-sans">{stat.sub}</p>
       </div>
 
       {/* Source Footer */}
-      <div className="mt-6 pt-4 border-t border-brand/5 flex items-center justify-between text-[10px] font-mono text-muted">
-        <span>METRIC SOURCE</span>
-        <span>{stat.source}</span>
+      <div className="mt-8 pt-4 border-t border-brand/10 flex items-center justify-between text-[10px] font-mono text-muted">
+        <span className="font-semibold uppercase tracking-wider text-brand/70">Source</span>
+        <span className="truncate max-w-[170px] text-right font-medium">{stat.source}</span>
       </div>
     </motion.div>
   );

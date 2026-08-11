@@ -172,10 +172,11 @@ export default function Hero({ onWatchVision }: HeroProps) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-soft text-brand text-xs font-semibold mb-6 border border-brand/10 shadow-sm animate-pulse-slow"
+        className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-soft/90 text-brand text-xs font-semibold mb-8 border border-brand/15 shadow-md shadow-brand/5 backdrop-blur-md animate-pulse-slow"
       >
-        <Sparkles size={12} className="animate-pulse text-brand-highlight" />
-        <span className="font-medium tracking-wide">Dietcraft Coming Soon — Fusing IKS & Wearable Intelligence</span>
+        <div className="w-2 h-2 rounded-full bg-brand-highlight animate-ping" />
+        <Sparkles size={13} className="animate-pulse text-brand-highlight" />
+        <span className="font-medium tracking-wide">Dietcraft Coming Soon — Fusing IKS &amp; Wearable Intelligence</span>
       </motion.div>
 
       {/* Main Tagline */}
@@ -184,10 +185,10 @@ export default function Hero({ onWatchVision }: HeroProps) {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-dark leading-[1.05]"
+          className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-dark leading-[1.06]"
         >
           Time-Tested Indic Wisdom. <br />
-          <span className="text-brand">Synchronized in Real-Time by AI.</span>
+          <span className="text-gradient-emerald">Synchronized in Real-Time by AI.</span>
         </motion.h1>
         
         <motion.p
@@ -196,7 +197,7 @@ export default function Hero({ onWatchVision }: HeroProps) {
           transition={{ duration: 0.9, delay: 0.3 }}
           className="mt-6 text-base sm:text-lg md:text-xl text-muted font-sans font-light max-w-3xl mx-auto leading-relaxed"
         >
-          Dietcraft.life is India&apos;s pioneering luxury wellness solution provider <span className="text-brand font-medium">(Coming Soon)</span>. We decode your unique biological constitution (Prakriti) and optimize metabolic fire (Agni) by pairing timeless Indian health shastras with continuous wearable biosensors.
+          Dietcraft.life is India&apos;s pioneering luxury wellness solution provider <span className="text-brand font-semibold">(Coming Soon)</span>. We decode your unique biological constitution (Prakriti) and optimize metabolic fire (Agni) by pairing timeless Indian health shastras with continuous wearable biosensors.
         </motion.p>
       </div>
 
@@ -209,18 +210,19 @@ export default function Hero({ onWatchVision }: HeroProps) {
       >
         <button
           onClick={scrollToEnroll}
-          className="w-full sm:w-auto px-8 py-4 text-sm font-semibold rounded-full bg-brand text-white hover:bg-brand/90 transition-all duration-300 shadow-lg shadow-brand/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+          className="w-full sm:w-auto px-9 py-4 text-sm font-semibold rounded-full bg-brand text-white hover:bg-brand/95 transition-all duration-300 shadow-xl shadow-brand/25 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border border-white/20 relative group overflow-hidden"
         >
+          <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           <span>Begin Your Alignment</span>
-          <ArrowDown size={14} className="animate-bounce" />
+          <ArrowDown size={15} className="animate-bounce text-brand-highlight" />
         </button>
         
         <button
           onClick={onWatchVision}
-          className="w-full sm:w-auto px-8 py-4 text-sm font-semibold rounded-full glass-card text-dark hover:bg-white/80 transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-brand/10"
+          className="w-full sm:w-auto px-9 py-4 text-sm font-semibold rounded-full glass-card text-dark hover:bg-white/90 transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border border-brand/15 shadow-md hover:shadow-lg"
         >
-          <div className="w-5 h-5 rounded-full bg-brand-soft flex items-center justify-center text-brand-highlight">
-            <Play size={10} className="fill-brand-highlight stroke-[3]" />
+          <div className="w-6 h-6 rounded-full bg-brand-soft flex items-center justify-center text-brand-highlight shadow-2xs border border-brand/10">
+            <Play size={11} className="fill-brand-highlight stroke-[3] translate-x-0.5" />
           </div>
           <span>Watch Our Vision Video</span>
         </button>
