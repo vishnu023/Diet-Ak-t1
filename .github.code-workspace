@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": ".github",
+			"path": "../../../../Desktop/Dite AK/Diet Ak t1/.github"
+		},
+		{
+			"name": "Diet-Ak-t1",
+			"path": "."
+		},
+		{
+			"name": "src",
+			"path": "../../../../Desktop/Dite AK/Diet Ak t1/src"
+		},
+		{
+			"name": "assets",
+			"path": "../../../../Desktop/Dite AK/Diet Ak t1/assets"
+		},
+		{
+			"name": "dist",
+			"path": "../../../../Desktop/Dite AK/Diet Ak t1/dist"
+		},
+		{
+			"name": "node_modules",
+			"path": "../../../../Desktop/Dite AK/Diet Ak t1/node_modules"
+		}
+	],
+	"settings": {}
+}
